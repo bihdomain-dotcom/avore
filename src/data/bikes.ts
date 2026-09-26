@@ -195,7 +195,7 @@ export const MEDIA_TESTIMONIALS: Testimonial[] = [
 
 export const BOOKING_INFO = {
   bookingAmount: '₹799/-',
-  url: 'https://avoreelectric.ct.ws/',
+  bookingUrl: 'https://avore.in/booking',
   phone: '+91 8584860513',
   documents: [
     { title: 'Aadhar Card', desc: 'Identity verification for government registration' },
