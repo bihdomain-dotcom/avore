@@ -1,0 +1,11 @@
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.*
+.DS_Store
+extract.js
+download_assets.js
+search_videos.js
+search_videos.cjs
