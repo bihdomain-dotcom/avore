@@ -337,19 +337,19 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={handleResetModal}
-          className="fixed inset-0 bg-black/90 backdrop-blur-2xl"
+          className="fixed inset-0 bg-black/85 backdrop-blur-xl"
         />
 
         {/* Modal Window */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.92, y: 20 }}
+          initial={{ opacity: 0, scale: 0.95, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.92, y: 20 }}
+          exit={{ opacity: 0, scale: 0.95, y: 15 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className="relative w-full max-w-2xl bg-[#090b11] border border-[#00f0ff]/40 rounded-3xl p-5 sm:p-8 z-10 shadow-[0_0_60px_rgba(0,240,255,0.25)] my-auto overflow-hidden max-h-[94vh] flex flex-col justify-between"
+          className="relative w-full max-w-2xl bg-[#090b12] border border-[#00f0ff]/30 rounded-3xl p-5 sm:p-8 z-10 shadow-[0_0_50px_rgba(0,240,255,0.2)] my-auto overflow-hidden max-h-[92vh] flex flex-col justify-between"
         >
-          {/* Top Decorative Glow Bar */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00f0ff] via-[#00ff9d] to-[#e2f952]" />
+          {/* Top Subtle Cyan Accent Line */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00f0ff] via-[#00ff9d] to-[#0088ff]" />
 
           {/* Close Button */}
           <button
@@ -359,29 +359,29 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
             <X className="w-5 h-5" />
           </button>
 
-          {/* Modal Header & Step Indicator */}
+          {/* Clean Modal Header & Progress Tracker */}
           <div className="text-center mb-5 pt-1 shrink-0">
             <div className="inline-flex items-center justify-center gap-2 mb-2 px-3 py-1 rounded-full border border-[#00f0ff]/30 bg-[#00f0ff]/10">
-              <span className="text-[10px] font-mono text-[#00f0ff] uppercase tracking-widest font-bold">
-                OFFICIAL AVORE RESERVATIONS • STEP {step === 'select' ? '1' : step === 'form' ? '2' : step === 'payment' ? '3' : '4'} OF 4
+              <span className="text-[11px] font-mono text-[#00f0ff] font-semibold tracking-wider">
+                Official AVORE Pre-Booking • Step {step === 'select' ? '1' : step === 'form' ? '2' : step === 'payment' ? '3' : '4'} of 4
               </span>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-heading font-extrabold text-white uppercase tracking-tight">
-              {step === 'select' && 'PRE-BOOK YOUR AVORE — ₹799'}
-              {step === 'form' && 'CUSTOMER PRE-BOOKING FORM'}
-              {step === 'payment' && 'UPI PAYMENT GATEWAY — ₹799'}
-              {step === 'success' && 'BOOKING CONFIRMED & VERIFIED'}
+            <h3 className="text-xl sm:text-3xl font-heading font-extrabold text-white tracking-tight">
+              {step === 'select' && 'Reserve Your AVORE — ₹799'}
+              {step === 'form' && 'Customer Registration Form'}
+              {step === 'payment' && 'UPI Payment Portal — ₹799'}
+              {step === 'success' && 'Pre-Booking Confirmed'}
             </h3>
 
-            <p className="text-xs text-gray-400 font-sans mt-1">
-              {step === 'select' && 'Select your bike model and view required booking documents.'}
-              {step === 'form' && 'Fill details below to reserve your priority queue delivery slot.'}
-              {step === 'payment' && 'Scan QR code below & submit UTR / Reference number to verify payment.'}
-              {step === 'success' && 'Your pre-booking deposit & UTR have been successfully recorded.'}
+            <p className="text-xs text-gray-300 mt-1 max-w-md mx-auto">
+              {step === 'select' && 'Select your bike model and view mandatory verification documents.'}
+              {step === 'form' && 'Fill your delivery details below to secure your priority queue slot.'}
+              {step === 'payment' && 'Scan QR code below with any UPI App and enter your 12-digit UTR reference number.'}
+              {step === 'success' && 'Your priority queue slot and payment details have been successfully registered.'}
             </p>
 
-            {/* Visual Step Progress Indicator */}
+            {/* Visual Progress Bar */}
             <div className="flex items-center justify-center gap-2 mt-3 max-w-xs mx-auto">
               <div className={`h-1.5 flex-1 rounded-full transition-colors ${step === 'select' || step === 'form' || step === 'payment' || step === 'success' ? 'bg-[#00f0ff]' : 'bg-white/10'}`} />
               <div className={`h-1.5 flex-1 rounded-full transition-colors ${step === 'form' || step === 'payment' || step === 'success' ? 'bg-[#00ff9d]' : 'bg-white/10'}`} />
@@ -400,48 +400,48 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                 exit={{ opacity: 0, x: 10 }}
                 className="space-y-4"
               >
-                {/* Model Selection Tabs */}
+                {/* Clean Model Selection Cards */}
                 <div className="grid grid-cols-3 gap-3">
                   {BIKES.map((b) => (
                     <button
                       key={b.id}
                       onClick={() => setSelectedModel(b.id)}
-                      className={`p-3 rounded-xl border text-center transition-all ${
+                      className={`p-3 rounded-2xl border text-center transition-all ${
                         selectedModel === b.id
-                          ? 'border-[#00f0ff] bg-[#00f0ff]/15 text-white shadow-[0_0_20px_rgba(0,240,255,0.3)]'
-                          : 'border-white/10 bg-white/5 text-gray-400 hover:text-white hover:border-white/20'
+                          ? 'border-[#00f0ff] bg-[#00f0ff]/15 text-white shadow-[0_0_20px_rgba(0,240,255,0.25)]'
+                          : 'border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-white/20'
                       }`}
                     >
-                      <div className="text-xs font-heading font-bold uppercase">{b.name}</div>
-                      <div className="text-[11px] font-mono text-[#00ff9d] mt-0.5">{b.onRoadPrice}</div>
+                      <div className="text-xs font-heading font-bold">{b.name}</div>
+                      <div className="text-xs font-mono text-[#00ff9d] font-semibold mt-0.5">{b.onRoadPrice}</div>
                     </button>
                   ))}
                 </div>
 
-                {/* Selected Bike Overview Box */}
+                {/* Selected Bike Summary Card */}
                 <div className="p-4 rounded-2xl bg-black/60 border border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="flex items-center gap-4">
                     <img src={bike.image} alt={bike.name} className="w-24 h-16 object-contain" />
                     <div>
-                      <div className="inline-block px-2 py-0.5 rounded bg-[#00f0ff]/20 text-[#00f0ff] text-[10px] font-mono font-bold mb-1">
+                      <span className="inline-block px-2 py-0.5 rounded bg-[#00f0ff]/20 text-[#00f0ff] text-[11px] font-medium mb-1">
                         {bike.badge}
-                      </div>
-                      <h4 className="text-lg font-heading font-bold text-white uppercase">{bike.name}</h4>
-                      <p className="text-xs font-mono text-gray-400">Battery: {bike.battery} | Range: {bike.range}</p>
+                      </span>
+                      <h4 className="text-base font-heading font-bold text-white">{bike.name}</h4>
+                      <p className="text-xs text-gray-400">Battery: {bike.battery} | Range: {bike.range}</p>
                     </div>
                   </div>
                   <div className="text-right sm:border-l border-white/10 sm:pl-4 w-full sm:w-auto flex sm:block justify-between items-center">
-                    <span className="text-[10px] font-mono text-gray-400 uppercase">PRE-BOOK DEPOSIT</span>
-                    <span className="text-2xl font-heading font-extrabold text-[#00f0ff] block">₹799/-</span>
+                    <span className="text-xs text-gray-400 block">Token Deposit</span>
+                    <span className="text-xl font-heading font-extrabold text-[#00f0ff]">₹799/-</span>
                   </div>
                 </div>
 
-                {/* Required Documents Checklist */}
-                <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-3">
-                  <span className="text-[11px] font-mono text-[#00ff9d] uppercase tracking-widest font-bold flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-[#00ff9d]" /> REQUIRED FOR PRIORITY QUEUE RESERVATION:
+                {/* Verification Documents List */}
+                <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2.5">
+                  <span className="text-xs font-semibold text-[#00ff9d] flex items-center gap-1.5">
+                    <ShieldCheck className="w-4 h-4 text-[#00ff9d]" /> Mandatory Document Verification Checklist:
                   </span>
-                  <div className="grid grid-cols-2 gap-2.5 text-xs font-sans text-gray-300">
+                  <div className="grid grid-cols-2 gap-2 text-xs text-gray-300">
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#00ff9d] shrink-0" />
                       <span>1. Aadhar Card Number</span>
@@ -464,10 +464,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                 {/* Step 1 Action Button */}
                 <button
                   onClick={handleProceedToForm}
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-[#00f0ff] via-[#00c8ff] to-[#0088ff] text-black font-heading font-extrabold text-sm uppercase tracking-widest flex items-center justify-center gap-2 shadow-[0_0_35px_rgba(0,240,255,0.6)] hover:shadow-[0_0_50px_rgba(0,240,255,0.9)] transition-all"
+                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#00f0ff] via-[#00c8ff] to-[#0088ff] text-black font-heading font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(0,240,255,0.5)] hover:shadow-[0_0_45px_rgba(0,240,255,0.8)] transition-all cursor-pointer"
                 >
                   <Zap className="w-4 h-4 fill-black" />
-                  <span>CONTINUE TO BOOKING FORM (₹799)</span>
+                  <span>Continue to Customer Form (₹799)</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </motion.div>
@@ -484,42 +484,42 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
               >
                 {/* Form Bike Summary bar */}
                 <div className="p-3 rounded-xl bg-[#00f0ff]/10 border border-[#00f0ff]/30 flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-2 text-white font-heading font-bold uppercase">
+                  <div className="flex items-center gap-2 text-white font-semibold">
                     <Zap className="w-4 h-4 text-[#00f0ff]" />
                     <span>Selected: {bike.name} ({bike.onRoadPrice})</span>
                   </div>
-                  <span className="text-[#00ff9d] font-mono font-bold">Deposit: ₹799/-</span>
+                  <span className="text-[#00ff9d] font-bold">Deposit: ₹799/-</span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {/* Full Name */}
                   <div>
-                    <label className="text-[11px] font-mono text-gray-300 uppercase tracking-wider block mb-1">
+                    <label className="text-xs font-medium text-gray-300 block mb-1">
                       Full Name <span className="text-[#00f0ff]">*</span>
                     </label>
                     <div className="relative">
-                      <User className="w-4 h-4 text-gray-400 absolute left-3 top-3.5" />
+                      <User className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
                       <input
                         type="text"
                         name="fullName"
                         value={formData.fullName}
                         onChange={handleInputChange}
                         placeholder="e.g. Rahul Sharma"
-                        className={`w-full pl-9 pr-3 py-2.5 bg-black/60 border ${
+                        className={`w-full pl-9 pr-3 py-2.5 bg-[#0b0d14] border ${
                           formErrors.fullName ? 'border-red-500' : 'border-white/15 focus:border-[#00f0ff]'
-                        } rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-colors`}
+                        } rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-all`}
                       />
                     </div>
-                    {formErrors.fullName && <p className="text-[10px] text-red-400 mt-1">{formErrors.fullName}</p>}
+                    {formErrors.fullName && <p className="text-[11px] text-red-400 mt-1">{formErrors.fullName}</p>}
                   </div>
 
                   {/* Phone Number */}
                   <div>
-                    <label className="text-[11px] font-mono text-gray-300 uppercase tracking-wider block mb-1">
+                    <label className="text-xs font-medium text-gray-300 block mb-1">
                       Mobile Number <span className="text-[#00f0ff]">*</span>
                     </label>
                     <div className="relative">
-                      <Phone className="w-4 h-4 text-gray-400 absolute left-3 top-3.5" />
+                      <Phone className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
                       <input
                         type="tel"
                         name="phone"
@@ -527,42 +527,42 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                         onChange={handleInputChange}
                         placeholder="10-digit mobile number"
                         maxLength={10}
-                        className={`w-full pl-9 pr-3 py-2.5 bg-black/60 border ${
+                        className={`w-full pl-9 pr-3 py-2.5 bg-[#0b0d14] border ${
                           formErrors.phone ? 'border-red-500' : 'border-white/15 focus:border-[#00f0ff]'
-                        } rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-colors`}
+                        } rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-all`}
                       />
                     </div>
-                    {formErrors.phone && <p className="text-[10px] text-red-400 mt-1">{formErrors.phone}</p>}
+                    {formErrors.phone && <p className="text-[11px] text-red-400 mt-1">{formErrors.phone}</p>}
                   </div>
 
                   {/* Email Address */}
                   <div>
-                    <label className="text-[11px] font-mono text-gray-300 uppercase tracking-wider block mb-1">
+                    <label className="text-xs font-medium text-gray-300 block mb-1">
                       Email Address <span className="text-[#00f0ff]">*</span>
                     </label>
                     <div className="relative">
-                      <Mail className="w-4 h-4 text-gray-400 absolute left-3 top-3.5" />
+                      <Mail className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
                       <input
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="yourname@gmail.com"
-                        className={`w-full pl-9 pr-3 py-2.5 bg-black/60 border ${
+                        className={`w-full pl-9 pr-3 py-2.5 bg-[#0b0d14] border ${
                           formErrors.email ? 'border-red-500' : 'border-white/15 focus:border-[#00f0ff]'
-                        } rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-colors`}
+                        } rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-all`}
                       />
                     </div>
-                    {formErrors.email && <p className="text-[10px] text-red-400 mt-1">{formErrors.email}</p>}
+                    {formErrors.email && <p className="text-[11px] text-red-400 mt-1">{formErrors.email}</p>}
                   </div>
 
                   {/* Aadhar Number */}
                   <div>
-                    <label className="text-[11px] font-mono text-gray-300 uppercase tracking-wider block mb-1">
+                    <label className="text-xs font-medium text-gray-300 block mb-1">
                       Aadhar Card Number <span className="text-[#00f0ff]">*</span>
                     </label>
                     <div className="relative">
-                      <FileText className="w-4 h-4 text-gray-400 absolute left-3 top-3.5" />
+                      <FileText className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
                       <input
                         type="text"
                         name="aadharNumber"
@@ -570,38 +570,38 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                         onChange={handleInputChange}
                         placeholder="12-digit Aadhar number"
                         maxLength={14}
-                        className={`w-full pl-9 pr-3 py-2.5 bg-black/60 border ${
+                        className={`w-full pl-9 pr-3 py-2.5 bg-[#0b0d14] border ${
                           formErrors.aadharNumber ? 'border-red-500' : 'border-white/15 focus:border-[#00f0ff]'
-                        } rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-colors`}
+                        } rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-all`}
                       />
                     </div>
-                    {formErrors.aadharNumber && <p className="text-[10px] text-red-400 mt-1">{formErrors.aadharNumber}</p>}
+                    {formErrors.aadharNumber && <p className="text-[11px] text-red-400 mt-1">{formErrors.aadharNumber}</p>}
                   </div>
 
                   {/* City */}
                   <div>
-                    <label className="text-[11px] font-mono text-gray-300 uppercase tracking-wider block mb-1">
+                    <label className="text-xs font-medium text-gray-300 block mb-1">
                       City <span className="text-[#00f0ff]">*</span>
                     </label>
                     <div className="relative">
-                      <MapPin className="w-4 h-4 text-gray-400 absolute left-3 top-3.5" />
+                      <MapPin className="w-4 h-4 text-gray-400 absolute left-3 top-3" />
                       <input
                         type="text"
                         name="city"
                         value={formData.city}
                         onChange={handleInputChange}
                         placeholder="e.g. New Delhi / Patna"
-                        className={`w-full pl-9 pr-3 py-2.5 bg-black/60 border ${
+                        className={`w-full pl-9 pr-3 py-2.5 bg-[#0b0d14] border ${
                           formErrors.city ? 'border-red-500' : 'border-white/15 focus:border-[#00f0ff]'
-                        } rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-colors`}
+                        } rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-all`}
                       />
                     </div>
-                    {formErrors.city && <p className="text-[10px] text-red-400 mt-1">{formErrors.city}</p>}
+                    {formErrors.city && <p className="text-[11px] text-red-400 mt-1">{formErrors.city}</p>}
                   </div>
 
                   {/* State */}
                   <div>
-                    <label className="text-[11px] font-mono text-gray-300 uppercase tracking-wider block mb-1">
+                    <label className="text-xs font-medium text-gray-300 block mb-1">
                       State <span className="text-[#00f0ff]">*</span>
                     </label>
                     <input
@@ -610,16 +610,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                       value={formData.state}
                       onChange={handleInputChange}
                       placeholder="e.g. Bihar / Maharashtra"
-                      className={`w-full px-3 py-2.5 bg-black/60 border ${
+                      className={`w-full px-3 py-2.5 bg-[#0b0d14] border ${
                         formErrors.state ? 'border-red-500' : 'border-white/15 focus:border-[#00f0ff]'
-                      } rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-colors`}
+                      } rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-all`}
                     />
-                    {formErrors.state && <p className="text-[10px] text-red-400 mt-1">{formErrors.state}</p>}
+                    {formErrors.state && <p className="text-[11px] text-red-400 mt-1">{formErrors.state}</p>}
                   </div>
 
                   {/* Pincode */}
                   <div>
-                    <label className="text-[11px] font-mono text-gray-300 uppercase tracking-wider block mb-1">
+                    <label className="text-xs font-medium text-gray-300 block mb-1">
                       Pincode <span className="text-[#00f0ff]">*</span>
                     </label>
                     <input
@@ -629,16 +629,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                       onChange={handleInputChange}
                       placeholder="6-digit Pincode"
                       maxLength={6}
-                      className={`w-full px-3 py-2.5 bg-black/60 border ${
+                      className={`w-full px-3 py-2.5 bg-[#0b0d14] border ${
                         formErrors.pincode ? 'border-red-500' : 'border-white/15 focus:border-[#00f0ff]'
-                      } rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-colors`}
+                      } rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-all`}
                     />
-                    {formErrors.pincode && <p className="text-[10px] text-red-400 mt-1">{formErrors.pincode}</p>}
+                    {formErrors.pincode && <p className="text-[11px] text-red-400 mt-1">{formErrors.pincode}</p>}
                   </div>
 
                   {/* PAN Card Number */}
                   <div>
-                    <label className="text-[11px] font-mono text-gray-300 uppercase tracking-wider block mb-1">
+                    <label className="text-xs font-medium text-gray-300 block mb-1">
                       PAN Card Number <span className="text-gray-500">(Optional)</span>
                     </label>
                     <input
@@ -647,14 +647,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                       value={formData.panNumber}
                       onChange={handleInputChange}
                       placeholder="e.g. ABCDE1234F"
-                      className="w-full px-3 py-2.5 bg-black/60 border border-white/15 focus:border-[#00f0ff] rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-colors uppercase"
+                      className="w-full px-3 py-2.5 bg-[#0b0d14] border border-white/15 focus:border-[#00f0ff] rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-all uppercase"
                     />
                   </div>
                 </div>
 
                 {/* Full Address */}
                 <div>
-                  <label className="text-[11px] font-mono text-gray-300 uppercase tracking-wider block mb-1">
+                  <label className="text-xs font-medium text-gray-300 block mb-1">
                     Full Delivery / RTO Address <span className="text-[#00f0ff]">*</span>
                   </label>
                   <textarea
@@ -663,15 +663,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                     onChange={handleInputChange}
                     rows={2}
                     placeholder="House/Flat No., Street, Landmark"
-                    className={`w-full p-2.5 bg-black/60 border ${
+                    className={`w-full p-2.5 bg-[#0b0d14] border ${
                       formErrors.address ? 'border-red-500' : 'border-white/15 focus:border-[#00f0ff]'
-                    } rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-colors resize-none`}
+                    } rounded-xl text-xs text-white placeholder-gray-500 outline-none transition-all resize-none`}
                   />
-                  {formErrors.address && <p className="text-[10px] text-red-400 mt-1">{formErrors.address}</p>}
+                  {formErrors.address && <p className="text-[11px] text-red-400 mt-1">{formErrors.address}</p>}
                 </div>
 
-                {/* Privacy Note */}
-                <p className="text-[10px] font-mono text-center text-gray-400 bg-white/5 p-2 rounded-lg border border-white/10 flex items-center justify-center gap-1.5">
+                {/* Privacy Guarantee */}
+                <p className="text-xs text-center text-gray-400 bg-white/5 p-2 rounded-lg border border-white/10 flex items-center justify-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#00ff9d]" />
                   <span>100% Encrypted & Official AVORE Pre-Booking Registration</span>
                 </p>
@@ -681,26 +681,26 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                   <button
                     type="button"
                     onClick={() => setStep('select')}
-                    className="px-4 py-3.5 rounded-xl border border-white/20 bg-white/5 text-white font-heading font-bold text-xs uppercase hover:bg-white/10 transition-colors flex items-center gap-1.5"
+                    className="px-4 py-3 rounded-xl border border-white/20 bg-white/5 text-white font-medium text-xs hover:bg-white/10 transition-colors flex items-center gap-1.5"
                   >
                     <ArrowLeft className="w-4 h-4" />
-                    <span>BACK</span>
+                    <span>Back</span>
                   </button>
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-[#00f0ff] via-[#00c8ff] to-[#0088ff] text-black font-heading font-extrabold text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-[0_0_35px_rgba(0,240,255,0.6)] hover:shadow-[0_0_50px_rgba(0,240,255,0.9)] disabled:opacity-50 transition-all"
+                    className="flex-1 py-3.5 rounded-xl bg-gradient-to-r from-[#00f0ff] via-[#00c8ff] to-[#0088ff] text-black font-heading font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(0,240,255,0.5)] hover:shadow-[0_0_45px_rgba(0,240,255,0.8)] disabled:opacity-50 transition-all cursor-pointer"
                   >
                     {isSubmitting ? (
                       <>
                         <Loader2 className="w-4 h-4 animate-spin text-black" />
-                        <span>SAVING DETAILS...</span>
+                        <span>Saving Registration...</span>
                       </>
                     ) : (
                       <>
                         <Zap className="w-4 h-4 fill-black" />
-                        <span>PROCEED TO UPI PAYMENT GATEWAY (₹799)</span>
+                        <span>Proceed to Payment Gateway (₹799)</span>
                         <ArrowRight className="w-4 h-4" />
                       </>
                     )}
@@ -718,30 +718,30 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                 className="space-y-4"
               >
                 {/* Gateway Title Banner */}
-                <div className="p-3.5 rounded-2xl bg-gradient-to-r from-[#00f0ff]/15 via-[#00ff9d]/10 to-transparent border border-[#00f0ff]/40 flex items-center justify-between">
+                <div className="p-3.5 rounded-2xl bg-gradient-to-r from-[#00f0ff]/15 via-[#00ff9d]/10 to-transparent border border-[#00f0ff]/30 flex items-center justify-between">
                   <div className="flex items-center gap-2.5">
                     <div className="w-8 h-8 rounded-lg bg-[#00f0ff]/20 flex items-center justify-center text-[#00f0ff]">
                       <CreditCard className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="text-xs font-heading font-extrabold text-white uppercase tracking-wider">
-                        AVORE OFFICIAL PAYMENT GATEWAY
+                      <h4 className="text-xs font-heading font-bold text-white">
+                        AVORE Official UPI Gateway
                       </h4>
-                      <p className="text-[10px] font-mono text-[#00ff9d]">256-Bit SSL Encrypted Direct UPI Merchant</p>
+                      <p className="text-[11px] text-[#00ff9d]">256-Bit SSL Encrypted Direct Merchant</p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <span className="text-[9px] font-mono text-gray-400 block uppercase">AMOUNT DUE</span>
+                    <span className="text-[10px] text-gray-400 block">Amount Due</span>
                     <span className="text-lg font-heading font-extrabold text-[#00f0ff]">₹799.00</span>
                   </div>
                 </div>
 
                 {/* QR Code & Direct UPI Container */}
                 <div className="p-4 rounded-2xl bg-black/80 border border-white/15 flex flex-col sm:flex-row items-center gap-5">
-                  {/* Official Payment QR Image from assets/paymentqr.jpeg */}
-                  <div className="relative shrink-0 p-2.5 bg-white rounded-2xl border-2 border-[#00f0ff] shadow-[0_0_25px_rgba(0,240,255,0.4)] flex flex-col items-center">
-                    <div className="text-[9px] font-mono font-bold text-black uppercase mb-1 tracking-widest">
-                      SCAN & PAY ₹799
+                  {/* Official Payment QR Image */}
+                  <div className="relative shrink-0 p-2 bg-white rounded-2xl border-2 border-[#00f0ff] shadow-[0_0_25px_rgba(0,240,255,0.4)] flex flex-col items-center">
+                    <div className="text-[10px] font-bold text-black uppercase mb-1 tracking-wider">
+                      Scan & Pay ₹799
                     </div>
                     <div className="relative w-36 h-36 bg-white flex items-center justify-center p-1 rounded-lg overflow-hidden">
                       <img
@@ -756,27 +756,27 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                         className="absolute left-0 right-0 h-0.5 bg-[#00f0ff] shadow-[0_0_8px_#00f0ff]"
                       />
                     </div>
-                    <span className="text-[9px] font-mono text-black font-bold mt-1">UPI ID: {upiId}</span>
+                    <span className="text-[10px] font-mono text-black font-semibold mt-1">UPI ID: {upiId}</span>
                   </div>
 
                   {/* Right Instruction & Supported Apps */}
                   <div className="space-y-3 flex-1 text-left">
-                    <span className="text-[10px] font-mono text-[#00f0ff] uppercase tracking-widest block font-bold">
-                      SCAN WITH ANY UPI APP:
+                    <span className="text-xs font-semibold text-[#00f0ff] block">
+                      Scan using any UPI App:
                     </span>
 
                     {/* Supported Apps Chips */}
-                    <div className="flex flex-wrap gap-2 text-[10px] font-mono">
-                      <span className="px-2.5 py-1 rounded-md bg-[#00f0ff]/10 border border-[#00f0ff]/30 text-[#00f0ff] font-bold">
+                    <div className="flex flex-wrap gap-2 text-xs">
+                      <span className="px-2.5 py-1 rounded-md bg-[#00f0ff]/10 border border-[#00f0ff]/30 text-[#00f0ff] font-medium">
                         GPay
                       </span>
-                      <span className="px-2.5 py-1 rounded-md bg-[#00ff9d]/10 border border-[#00ff9d]/30 text-[#00ff9d] font-bold">
+                      <span className="px-2.5 py-1 rounded-md bg-[#00ff9d]/10 border border-[#00ff9d]/30 text-[#00ff9d] font-medium">
                         PhonePe
                       </span>
-                      <span className="px-2.5 py-1 rounded-md bg-white/10 border border-white/20 text-white font-bold">
+                      <span className="px-2.5 py-1 rounded-md bg-white/10 border border-white/20 text-white font-medium">
                         Paytm
                       </span>
-                      <span className="px-2.5 py-1 rounded-md bg-[#e2f952]/10 border border-[#e2f952]/30 text-[#e2f952] font-bold">
+                      <span className="px-2.5 py-1 rounded-md bg-[#e2f952]/10 border border-[#e2f952]/30 text-[#e2f952] font-medium">
                         BHIM UPI
                       </span>
                     </div>
@@ -789,18 +789,18 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                       <button
                         type="button"
                         onClick={handleCopyUpi}
-                        className="px-3 py-2 rounded-lg bg-[#00f0ff]/20 hover:bg-[#00f0ff]/30 border border-[#00f0ff]/40 text-[#00f0ff] text-xs font-mono font-bold flex items-center gap-1 transition-colors"
+                        className="px-3 py-2 rounded-lg bg-[#00f0ff]/20 hover:bg-[#00f0ff]/30 border border-[#00f0ff]/40 text-[#00f0ff] text-xs font-semibold flex items-center gap-1 transition-colors"
                       >
                         {copiedUpi ? <Check className="w-3.5 h-3.5 text-[#00ff9d]" /> : <Copy className="w-3.5 h-3.5" />}
-                        <span>{copiedUpi ? 'COPIED' : 'COPY'}</span>
+                        <span>{copiedUpi ? 'Copied' : 'Copy'}</span>
                       </button>
                     </div>
 
-                    <div className="p-2.5 rounded-lg bg-white/[0.03] border border-white/10 text-[11px] font-mono text-gray-300 space-y-1">
-                      <p className="text-[#00ff9d] font-bold">📌 Payment Instructions:</p>
-                      <ol className="list-decimal list-inside space-y-0.5 text-gray-400 text-[10px]">
+                    <div className="p-2.5 rounded-lg bg-white/[0.03] border border-white/10 text-xs text-gray-300 space-y-1">
+                      <p className="text-[#00ff9d] font-semibold">📌 Payment Steps:</p>
+                      <ol className="list-decimal list-inside space-y-0.5 text-gray-400 text-xs">
                         <li>Scan QR Code or copy UPI ID to transfer <strong className="text-white">₹799/-</strong>.</li>
-                        <li>After payment, copy the 12-digit <strong className="text-white">UTR / Transaction Reference Number</strong>.</li>
+                        <li>After payment, copy the 12-digit <strong className="text-white">UTR / Transaction Ref Number</strong>.</li>
                         <li>Enter UTR below (Mandatory) & upload Screenshot (Optional).</li>
                       </ol>
                     </div>
@@ -811,11 +811,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                 <div className="p-4 rounded-2xl bg-black/60 border border-[#00f0ff]/30 space-y-3">
                   {/* UTR Input (MANDATORY) */}
                   <div>
-                    <label className="text-[11px] font-mono text-white uppercase tracking-wider flex items-center justify-between mb-1">
-                      <span>UTR / UPI Transaction Ref Number <span className="text-red-500 font-bold">* MANDATORY</span></span>
+                    <label className="text-xs font-medium text-white flex items-center justify-between mb-1">
+                      <span>UTR / UPI Transaction Ref Number <span className="text-red-400 font-bold">* Mandatory</span></span>
                     </label>
                     <div className="relative">
-                      <Receipt className="w-4 h-4 text-[#00f0ff] absolute left-3 top-3.5" />
+                      <Receipt className="w-4 h-4 text-[#00f0ff] absolute left-3 top-3" />
                       <input
                         type="text"
                         value={utrNumber}
@@ -824,23 +824,23 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                           if (utrError) setUtrError('');
                         }}
                         placeholder="Enter 12-digit UTR No (e.g. 426819204812)"
-                        className={`w-full pl-9 pr-3 py-2.5 bg-black/80 border ${
+                        className={`w-full pl-9 pr-3 py-2.5 bg-[#0b0d14] border ${
                           utrError ? 'border-red-500' : 'border-[#00f0ff]/50 focus:border-[#00f0ff]'
-                        } rounded-xl text-xs text-white placeholder-gray-500 outline-none font-mono tracking-wider transition-colors`}
+                        } rounded-xl text-xs text-white placeholder-gray-500 outline-none font-mono transition-all`}
                       />
                     </div>
                     {utrError && (
-                      <p className="text-[10px] font-mono text-red-400 mt-1 flex items-center gap-1">
+                      <p className="text-xs text-red-400 mt-1 flex items-center gap-1">
                         <AlertCircle className="w-3.5 h-3.5" />
                         {utrError}
                       </p>
                     )}
                   </div>
 
-                  {/* Payment Screenshot Upload (OPTIONAL with Direct Clickable Gmail Link Attachment) */}
+                  {/* Payment Screenshot Upload */}
                   <div>
-                    <label className="text-[11px] font-mono text-gray-300 uppercase tracking-wider block mb-1">
-                      Payment Screenshot <span className="text-gray-500">(Optional - Generates Direct Photo Link in Gmail)</span>
+                    <label className="text-xs font-medium text-gray-300 block mb-1">
+                      Payment Screenshot <span className="text-gray-500">(Optional)</span>
                     </label>
                     <div className="relative">
                       <input
@@ -852,15 +852,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                       />
 
                       {screenshotBase64 ? (
-                        <div className="p-3 rounded-xl border border-[#00ff9d]/40 bg-[#00ff9d]/10 flex items-center justify-between">
+                        <div className="p-2.5 rounded-xl border border-[#00ff9d]/40 bg-[#00ff9d]/10 flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <img src={screenshotBase64} alt="Screenshot Preview" className="w-12 h-12 object-cover rounded-lg border border-white/20" />
+                            <img src={screenshotBase64} alt="Screenshot Preview" className="w-10 h-10 object-cover rounded-lg border border-white/20" />
                             <div>
-                              <span className="text-xs font-mono font-bold text-white block truncate max-w-[200px]">
+                              <span className="text-xs font-medium text-white block truncate max-w-[200px]">
                                 {screenshotFileName}
                               </span>
-                              <span className="text-[10px] font-mono text-[#00ff9d]">
-                                ✓ Attached as Clickable Photo Link in Gmail
+                              <span className="text-[11px] text-[#00ff9d]">
+                                ✓ Screenshot Attached
                               </span>
                             </div>
                           </div>
@@ -876,17 +876,17 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                       ) : (
                         <label
                           htmlFor="screenshot-upload"
-                          className="w-full p-3 rounded-xl border border-dashed border-white/20 hover:border-[#00f0ff]/60 bg-white/5 hover:bg-white/10 text-xs font-mono text-gray-300 flex items-center justify-center gap-2 cursor-pointer transition-all"
+                          className="w-full p-2.5 rounded-xl border border-dashed border-white/20 hover:border-[#00f0ff]/60 bg-white/5 hover:bg-white/10 text-xs text-gray-300 flex items-center justify-center gap-2 cursor-pointer transition-all"
                         >
                           {isCompressing ? (
                             <>
                               <Loader2 className="w-4 h-4 animate-spin text-[#00f0ff]" />
-                              <span>Preparing Image Link...</span>
+                              <span>Preparing Attachment...</span>
                             </>
                           ) : (
                             <>
                               <Upload className="w-4 h-4 text-[#00f0ff]" />
-                              <span>Upload Payment Screenshot (Generates Clickable Image Link in Email)</span>
+                              <span>Upload Payment Screenshot (JPG, PNG)</span>
                             </>
                           )}
                         </label>
@@ -899,17 +899,17 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                 <button
                   type="submit"
                   disabled={isVerifyingPayment || isCompressing}
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-[#00f0ff] via-[#00c8ff] to-[#0088ff] text-black font-heading font-extrabold text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-[0_0_35px_rgba(0,240,255,0.6)] hover:shadow-[0_0_50px_rgba(0,240,255,0.9)] disabled:opacity-50 transition-all cursor-pointer"
+                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#00f0ff] via-[#00c8ff] to-[#0088ff] text-black font-heading font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(0,240,255,0.5)] hover:shadow-[0_0_45px_rgba(0,240,255,0.8)] disabled:opacity-50 transition-all cursor-pointer"
                 >
                   {isVerifyingPayment ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin text-black" />
-                      <span>VERIFYING UTR & SENDING ATTACHMENT TO GMAIL...</span>
+                      <span>Verifying UTR & Registering...</span>
                     </>
                   ) : (
                     <>
                       <CheckCircle2 className="w-4 h-4 text-black fill-black" />
-                      <span>SUBMIT UTR & CONFIRM BOOKING (₹799)</span>
+                      <span>Submit UTR & Confirm Booking (₹799)</span>
                     </>
                   )}
                 </button>
@@ -924,16 +924,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                 className="space-y-4 text-center"
               >
                 {/* Green Check Icon */}
-                <div className="w-16 h-16 rounded-full bg-[#00ff9d]/15 border border-[#00ff9d]/40 flex items-center justify-center mx-auto text-[#00ff9d] shadow-[0_0_30px_rgba(0,255,157,0.3)]">
-                  <CheckCircle className="w-8 h-8" />
+                <div className="w-14 h-14 rounded-full bg-[#00ff9d]/15 border border-[#00ff9d]/40 flex items-center justify-center mx-auto text-[#00ff9d] shadow-[0_0_30px_rgba(0,255,157,0.3)]">
+                  <CheckCircle className="w-7 h-7" />
                 </div>
 
                 <div>
-                  <span className="text-[10px] font-mono text-[#00ff9d] uppercase tracking-widest font-bold block mb-1">
-                    PRIORITY QUEUE RESERVATION CONFIRMED
+                  <span className="text-xs font-semibold text-[#00ff9d] uppercase block mb-1">
+                    Priority Queue Reservation Confirmed
                   </span>
-                  <h4 className="text-xl sm:text-2xl font-heading font-extrabold text-white uppercase">
-                    THANK YOU FOR PRE-BOOKING!
+                  <h4 className="text-xl sm:text-2xl font-heading font-extrabold text-white">
+                    Thank You for Pre-Booking!
                   </h4>
                   <p className="text-xs text-gray-400 mt-1">
                     Order Reference Code: <span className="font-mono text-[#00f0ff] font-bold">{bookingRefId}</span>
@@ -941,7 +941,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                 </div>
 
                 {/* Printable Order Receipt Box */}
-                <div className="p-4 rounded-2xl bg-black/80 border border-[#00ff9d]/30 text-left space-y-2 text-xs font-mono">
+                <div className="p-4 rounded-2xl bg-black/80 border border-[#00ff9d]/30 text-left space-y-2 text-xs">
                   <div className="flex justify-between border-b border-white/10 pb-2">
                     <span className="text-gray-400">Reserved Bike:</span>
                     <span className="text-white font-bold">{bike.name}</span>
@@ -956,12 +956,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                   </div>
                   <div className="flex justify-between border-b border-white/10 pb-2">
                     <span className="text-gray-400">UTR / Ref Number:</span>
-                    <span className="text-[#00ff9d] font-bold">{utrNumber || 'SUBMITTED'}</span>
+                    <span className="text-[#00ff9d] font-mono font-bold">{utrNumber || 'SUBMITTED'}</span>
                   </div>
                   {screenshotFileName && (
                     <div className="flex justify-between border-b border-white/10 pb-2">
                       <span className="text-gray-400">Screenshot Sent:</span>
-                      <span className="text-[#00f0ff] font-bold">Attached ({screenshotFileName})</span>
+                      <span className="text-[#00f0ff] font-medium">{screenshotFileName}</span>
                     </div>
                   )}
                   <div className="flex justify-between pt-1">
@@ -970,16 +970,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-[#00ff9d]/10 border border-[#00ff9d]/30 text-[#00ff9d] text-xs font-mono">
+                <div className="p-3.5 rounded-xl bg-[#00ff9d]/10 border border-[#00ff9d]/30 text-[#00ff9d] text-xs">
                   ✨ Our mobility executive will contact you shortly on <strong>{formData.phone}</strong> for document verification and queue allotment.
                 </div>
 
                 {/* Close Button */}
                 <button
                   onClick={handleResetModal}
-                  className="w-full py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-heading font-bold text-xs uppercase tracking-widest border border-white/20 transition-colors"
+                  className="w-full py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs uppercase tracking-wider border border-white/20 transition-colors cursor-pointer"
                 >
-                  CLOSE & DONE
+                  Close & Finish
                 </button>
               </motion.div>
             )}
