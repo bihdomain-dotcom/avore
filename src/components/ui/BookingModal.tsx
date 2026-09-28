@@ -122,7 +122,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
   const bike = BIKES.find((b) => b.id === selectedModel) || BIKES[1];
-  const upiId = '8584860513@ybl';
+  const upiId = '8250533120@mbk';
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

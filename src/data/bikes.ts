@@ -1,7 +1,7 @@
 import { BikeModel, DealerCity, AppFeature, Testimonial, FAQItem } from '../types';
 
-export const HELPLINE_NUMBER = '+91 8584860513';
-export const HELPLINE_TEL = 'tel:+918584860513';
+export const HELPLINE_NUMBER = '+91 8282967327';
+export const HELPLINE_TEL = 'tel:+918282967327';
 
 export const BIKES: BikeModel[] = [
   {
@@ -136,14 +136,14 @@ export const BIKES: BikeModel[] = [
 ];
 
 export const DEALER_CITIES: DealerCity[] = [
-  { city: 'Delhi NCR', state: 'Delhi', hubs: 12, status: 'OPEN FOR TEST RIDES', address: 'Connaught Place & Aerocity Experience Hubs', phone: '+91 8584860513' },
-  { city: 'Mumbai', state: 'Maharashtra', hubs: 8, status: 'OPEN FOR TEST RIDES', address: 'BKC Bandra & Lower Parel Flagship Showrooms', phone: '+91 8584860513' },
-  { city: 'Bengaluru', state: 'Karnataka', hubs: 10, status: 'OPEN FOR TEST RIDES', address: 'Indiranagar & HSR Layout Mobility Centers', phone: '+91 8584860513' },
-  { city: 'Pune', state: 'Maharashtra', hubs: 6, status: 'OPEN FOR TEST RIDES', address: 'Koregaon Park Tech Drive Hub', phone: '+91 8584860513' },
-  { city: 'Hyderabad', state: 'Telangana', hubs: 7, status: 'OPEN FOR TEST RIDES', address: 'Gachibowli Cyber Hub Station', phone: '+91 8584860513' },
-  { city: 'Chennai', state: 'Tamil Nadu', hubs: 5, status: 'OPEN FOR TEST RIDES', address: 'Nungambakkam EV Pavilion', phone: '+91 8584860513' },
-  { city: 'Ahmedabad', state: 'Gujarat', hubs: 4, status: 'OPEN FOR TEST RIDES', address: 'SG Highway Flagship Center', phone: '+91 8584860513' },
-  { city: 'Jaipur', state: 'Rajasthan', hubs: 3, status: 'OPENING THIS MONTH', address: 'MI Road Experience Station', phone: '+91 8584860513' },
+  { city: 'Delhi NCR', state: 'Delhi', hubs: 12, status: 'OPEN FOR TEST RIDES', address: 'Connaught Place & Aerocity Experience Hubs', phone: '+91 8282967327' },
+  { city: 'Mumbai', state: 'Maharashtra', hubs: 8, status: 'OPEN FOR TEST RIDES', address: 'BKC Bandra & Lower Parel Flagship Showrooms', phone: '+91 8282967327' },
+  { city: 'Bengaluru', state: 'Karnataka', hubs: 10, status: 'OPEN FOR TEST RIDES', address: 'Indiranagar & HSR Layout Mobility Centers', phone: '+91 8282967327' },
+  { city: 'Pune', state: 'Maharashtra', hubs: 6, status: 'OPEN FOR TEST RIDES', address: 'Koregaon Park Tech Drive Hub', phone: '+91 8282967327' },
+  { city: 'Hyderabad', state: 'Telangana', hubs: 7, status: 'OPEN FOR TEST RIDES', address: 'Gachibowli Cyber Hub Station', phone: '+91 8282967327' },
+  { city: 'Chennai', state: 'Tamil Nadu', hubs: 5, status: 'OPEN FOR TEST RIDES', address: 'Nungambakkam EV Pavilion', phone: '+91 8282967327' },
+  { city: 'Ahmedabad', state: 'Gujarat', hubs: 4, status: 'OPEN FOR TEST RIDES', address: 'SG Highway Flagship Center', phone: '+91 8282967327' },
+  { city: 'Jaipur', state: 'Rajasthan', hubs: 3, status: 'OPENING THIS MONTH', address: 'MI Road Experience Station', phone: '+91 8282967327' },
 ];
 
 export const APP_FEATURES: AppFeature[] = [
@@ -197,7 +197,7 @@ export const BOOKING_INFO = {
   bookingAmount: '₹799/-',
   bookingUrl: '#booking',
   targetEmail: 'bihdatar@gmail.com',
-  phone: '+91 8584860513',
+  phone: '+91 8282967327',
   documents: [
     { title: 'Aadhar Card', desc: 'Identity verification for government registration' },
     { title: 'PAN Card', desc: 'Tax & financial identification for RTO transfer' },
