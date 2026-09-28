@@ -1,8 +1,12 @@
 import React from 'react';
-import { BOOKING_INFO, HELPLINE_NUMBER, HELPLINE_TEL } from '../../data/bikes';
-import { Zap, ShieldCheck, ArrowUpRight, PhoneCall } from 'lucide-react';
+import { HELPLINE_NUMBER, HELPLINE_TEL } from '../../data/bikes';
+import { Zap, ShieldCheck, PhoneCall, ArrowUpRight } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenBooking?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenBooking }) => {
   return (
     <footer className="bg-[#030406] text-white border-t border-white/10 pt-16 pb-12 relative overflow-hidden">
       <div className="w-full max-w-[1920px] px-6 sm:px-12 lg:px-20 mx-auto relative z-10">
@@ -63,15 +67,20 @@ export const Footer: React.FC = () => {
                 {HELPLINE_NUMBER}
               </a>
               <span className="text-[10px] font-mono text-gray-400 uppercase block pt-2">ONLINE RESERVATIONS:</span>
-              <a
-                href={BOOKING_INFO.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#00ff9d] hover:underline"
-              >
-                <span>https://avoreelectric.ct.ws/</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
+              {onOpenBooking ? (
+                <button
+                  onClick={onOpenBooking}
+                  className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#00ff9d] hover:underline cursor-pointer"
+                >
+                  <Zap className="w-3.5 h-3.5" />
+                  <span>PRE-BOOK YOUR AVORE (₹799)</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
+              ) : (
+                <span className="text-xs font-mono font-bold text-[#00ff9d]">
+                  Official Pre-Booking Portal (₹799)
+                </span>
+              )}
             </div>
           </div>
         </div>

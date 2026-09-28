@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BOOKING_INFO } from '../../data/bikes';
-import { Zap, ArrowRight, ShieldCheck, ExternalLink } from 'lucide-react';
+import { Zap, ArrowRight } from 'lucide-react';
 
-export const MegaCTASection: React.FC = () => {
+interface MegaCTASectionProps {
+  onOpenBooking: () => void;
+}
+
+export const MegaCTASection: React.FC<MegaCTASectionProps> = ({ onOpenBooking }) => {
   return (
     <section className="py-24 relative overflow-hidden bg-[#050507]">
       <div className="w-full max-w-[1920px] px-6 sm:px-12 lg:px-20 mx-auto relative z-10">
@@ -42,17 +45,15 @@ export const MegaCTASection: React.FC = () => {
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-5">
-              <a
-                href={BOOKING_INFO.url}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={onOpenBooking}
                 data-cursor="BOOK NOW"
-                className="w-full sm:w-auto px-12 py-5 rounded-sm bg-gradient-to-r from-[#00f0ff] via-[#00c8ff] to-[#0088ff] text-black font-heading font-extrabold text-sm uppercase tracking-widest shadow-[0_0_40px_rgba(0,240,255,0.7)] hover:shadow-[0_0_60px_rgba(0,240,255,1)] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3"
+                className="w-full sm:w-auto px-12 py-5 rounded-sm bg-gradient-to-r from-[#00f0ff] via-[#00c8ff] to-[#0088ff] text-black font-heading font-extrabold text-sm uppercase tracking-widest shadow-[0_0_40px_rgba(0,240,255,0.7)] hover:shadow-[0_0_60px_rgba(0,240,255,1)] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 cursor-pointer"
               >
                 <Zap className="w-5 h-5 fill-black" />
                 <span>BOOK AVORE — ₹799</span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
 
             <div className="pt-6 flex flex-wrap items-center justify-center gap-6 text-[11px] font-mono text-gray-400 uppercase tracking-widest">

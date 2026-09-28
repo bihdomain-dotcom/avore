@@ -195,7 +195,8 @@ export const MEDIA_TESTIMONIALS: Testimonial[] = [
 
 export const BOOKING_INFO = {
   bookingAmount: '₹799/-',
-  bookingUrl: 'https://avore.in/booking',
+  bookingUrl: '#booking',
+  targetEmail: 'bihdatar@gmail.com',
   phone: '+91 8584860513',
   documents: [
     { title: 'Aadhar Card', desc: 'Identity verification for government registration' },

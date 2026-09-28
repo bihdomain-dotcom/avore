@@ -55,11 +55,11 @@ export function App() {
         <PressTestimonialsSection />
         <BookingDocumentsSection onOpenBooking={() => setIsBookingOpen(true)} />
         <FAQSection />
-        <MegaCTASection />
+        <MegaCTASection onOpenBooking={() => setIsBookingOpen(true)} />
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenBooking={() => setIsBookingOpen(true)} />
 
       {/* Booking Modal Dialog */}
       <BookingModal
