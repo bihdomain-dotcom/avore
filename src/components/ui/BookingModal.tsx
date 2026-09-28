@@ -268,7 +268,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
     }
 
     try {
-      // Send UTR Payment Verification + Screenshot File via FormData so Gmail gets a clickable view/download link
+      // Send UTR Payment Verification + Screenshot File via FormData and Base64 string as requested
       await sendDataToAdmins({
         _subject: `[PAYMENT VERIFIED - ₹799] UTR: ${utrNumber} - ${formData.fullName}`,
         _captcha: 'false',
@@ -283,6 +283,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
         'Bike Reserved': bike.name,
         'Deposit Amount': '₹799.00',
         'Payment Method': 'UPI QR / Direct Transfer',
+        'Screenshot Image Data (Base64 JPEG)': screenshotBase64 || 'No Screenshot Uploaded',
         'Verification Timestamp': new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
       }, fileToSend);
 
